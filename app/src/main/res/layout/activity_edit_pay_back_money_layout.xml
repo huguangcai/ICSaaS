@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_theme_bg_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_marginLeft="15dp"
+            android:text="收款账号"
+            android:textColor="@color/color_101010"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvAcount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:drawableRight="@mipmap/icon_right_gray_arrow"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical|right"
+            android:hint="请选择收款账号" />
+
+
+    </LinearLayout>
+
+    <View style="@style/line_1" android:layout_marginHorizontal="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_marginLeft="15dp"
+            android:text="还款金额"
+            android:textColor="@color/color_101010"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/payMoney"
+            style="@style/edittext_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical|right"
+            android:hint="请输入还款金额"
+            android:textSize="14sp"
+            android:inputType="number" />
+
+
+    </LinearLayout>
+
+    <View style="@style/line_1" android:layout_marginHorizontal="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_marginLeft="15dp"
+            android:text="还款日期"
+            android:textColor="@color/color_101010"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:drawableRight="@mipmap/icon_right_gray_arrow"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical|right"
+            android:hint="请选择还款日期" />
+
+    </LinearLayout>
+
+    <View style="@style/line_1"
+        android:layout_marginHorizontal="15dp"/>
+
+    <TextView
+        android:id="@+id/tvOk"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="15dp"
+        android:background="@color/themeColor"
+        android:gravity="center"
+        android:text="保存"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp" />
+
+</LinearLayout>

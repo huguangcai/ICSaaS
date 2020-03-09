@@ -25,9 +25,11 @@ import androidx.annotation.NonNull;
 public class ContractManageDialog extends ABSDialog {
 
     private OnDialogListener onDialogListener;
+    private Context context;
 
     public ContractManageDialog(@NonNull Context context) {
         super(context, R.style.RightInRightOutDialogStyle);
+        this.context = context;
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.width = DisplayUtils.getDisplayWidth(context) * 2 / 3;
         params.height = WindowManager.LayoutParams.MATCH_PARENT;
@@ -96,6 +98,20 @@ public class ContractManageDialog extends ABSDialog {
 
         TextView tvManager = getViewById(R.id.tvManager);
         TextView tvWorker = getViewById(R.id.tvWorker);
+        tvManager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContractManageManagerDialog dialog = new ContractManageManagerDialog(context);
+                dialog.show();
+            }
+        });
+        tvWorker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContractManageWorkerDialog dialog = new ContractManageWorkerDialog(context);
+                dialog.show();
+            }
+        });
 
     }
 

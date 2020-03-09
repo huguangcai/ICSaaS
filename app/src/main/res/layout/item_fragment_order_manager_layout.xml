@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="15dp"
-    android:layout_marginTop="5dp"
     android:background="@color/colorWhite"
+    android:layout_marginTop="5dp"
+    android:layout_marginHorizontal="15dp"
     android:orientation="vertical">
 
     <TextView
@@ -20,13 +20,27 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="42dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/shape_c31a1a_bold_radius_0"
+        android:gravity="center"
+        android:text="紧急"
+        android:textColor="@color/color_c31a1a"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv1"
+        app:layout_constraintLeft_toRightOf="@id/tv1"
+        app:layout_constraintTop_toTopOf="@id/tv1" />
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
-        android:text="张浩"
+        android:text="一次性业务"
         android:textColor="@color/baseColorBlack"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@id/tv1"
@@ -51,35 +65,42 @@
         android:text="2020-02-01"
         android:textColor="@color/color_595959"
         android:textSize="12sp"
-        app:layout_constraintRight_toRightOf="@id/tvName"
+        app:layout_constraintRight_toRightOf="@id/tvType"
         app:layout_constraintTop_toTopOf="@id/tvCompanyName" />
 
     <TextView
-        android:id="@+id/tvNamePhone"
+        android:id="@+id/tvManger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
-        android:text="远远：188123123123"
+        android:text="客户经理：远远-188123123123"
         android:textColor="@color/color_595959"
         android:textSize="@dimen/textSize_12"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="@id/tv1"
         app:layout_constraintTop_toBottomOf="@id/tvCompanyName" />
 
     <TextView
-        android:id="@+id/tv2"
-        android:layout_width="69dp"
-        android:layout_height="26dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/shape_c31a1a_bold_radius_0"
-        android:gravity="center"
-        android:text="补录合同"
-        android:textColor="@color/color_c31a1a"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/tvNamePhone"
+        android:id="@+id/tvPayType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/color_101010"
+        app:layout_constraintTop_toBottomOf="@id/tvManger"
+        app:layout_constraintLeft_toLeftOf="@id/tv1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginVertical="10dp"
+        android:text="半年付  收款(元) : 1000"/>
+
+    <TextView
+        android:id="@+id/tvState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="未交完"
+        android:textSize="14sp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvNamePhone" />
+        app:layout_constraintTop_toTopOf="@id/tvPayType"
+        android:layout_marginRight="15dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

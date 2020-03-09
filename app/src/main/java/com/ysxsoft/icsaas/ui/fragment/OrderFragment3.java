@@ -1,8 +1,6 @@
-package com.ysxsoft.icsaas.ui.activity;
+package com.ysxsoft.icsaas.ui.fragment;
 
-import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.lzy.okgo.OkGo;
@@ -14,50 +12,32 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.ysxsoft.icsaas.R;
 import com.ysxsoft.icsaas.common_base.adapter.RBaseAdapter;
 import com.ysxsoft.icsaas.common_base.adapter.RViewHolder;
-import com.ysxsoft.icsaas.common_base.base.BaseActivity;
+import com.ysxsoft.icsaas.common_base.base.BaseFragment;
 import com.ysxsoft.icsaas.common_base.utils.SpUtils;
 import com.ysxsoft.icsaas.config.Urls;
-import com.ysxsoft.icsaas.ui.dialog.OrderWarningDialog;
+import com.ysxsoft.icsaas.ui.activity.OrderDetailActivity;
 
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 /**
  * Create By 胡
- * on 2020/3/6 0006
+ * on 2020/3/9 0009
  */
-public class OrderWarningActivity extends BaseActivity implements OnRefreshLoadMoreListener {
-
+public class OrderFragment3 extends BaseFragment implements OnRefreshLoadMoreListener {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     @BindView(R.id.smartRefresh)
     SmartRefreshLayout smartRefresh;
     int page = 1;
-    @BindView(R.id.et1)
-    EditText et1;
-    @BindView(R.id.tv1)
-    TextView tv1;
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setBackVisibily();
-        setTitle("订单预警");
-    }
 
     @Override
-    protected void setListener() {
-        tv1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OrderWarningDialog dialog = new OrderWarningDialog(mContext);
-                dialog.show();
-            }
-        });
+    protected int getLayoutId() {
+        return R.layout.fragment_tab1_tab2;
     }
 
     @Override
@@ -67,26 +47,26 @@ public class OrderWarningActivity extends BaseActivity implements OnRefreshLoadM
             list.add(String.valueOf(i));
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        RBaseAdapter<String> adapter = new RBaseAdapter<String>(mContext, R.layout.item_activity_order_warning_layout, list) {
+        RBaseAdapter<String> adapter = new RBaseAdapter<String>(mContext, R.layout.item_fragment_order_manager_layout, list) {
             @Override
             protected void fillItem(RViewHolder holder, String item, int position) {
-                TextView tvCompanyName = holder.getView(R.id.tvCompanyName);
                 TextView tv1 = holder.getView(R.id.tv1);
                 TextView tv2 = holder.getView(R.id.tv2);
-                TextView tvContractType = holder.getView(R.id.tvContractType);
-                TextView tvName = holder.getView(R.id.tvName);
-                TextView tvManagerName = holder.getView(R.id.tvManagerName);
-                TextView tvContractMoney = holder.getView(R.id.tvContractMoney);
-                TextView tvPaybackMoney = holder.getView(R.id.tvPaybackMoney);
-                TextView tvSignDate = holder.getView(R.id.tvSignDate);
-                TextView tvSignEndDate = holder.getView(R.id.tvSignEndDate);
+                TextView tvType = holder.getView(R.id.tvType);
+                TextView tvCompanyName = holder.getView(R.id.tvCompanyName);
+                TextView tvTime = holder.getView(R.id.tvTime);
+                TextView tvManger = holder.getView(R.id.tvManger);
+                TextView tvPayType = holder.getView(R.id.tvPayType);
+                TextView tvState = holder.getView(R.id.tvState);
+                if (position % 2 == 0) {
+                    tvState.setTextColor(getResources().getColor(R.color.color_c31a1a));
+                } else {
+                    tvState.setText("已还清");
+                    tvState.setTextColor(getResources().getColor(R.color.color_444343));
+                }
 
-//                tvName.setText("客户姓名：");
-//                tvManagerName.setText("客户经理：");
-//                tvContractMoney.setText("合同金额：");
-//                tvPaybackMoney.setText("收款金额：");
-//                tvSignDate.setText("签订时间：");
-//                tvSignEndDate.setText("到期时间：");
+                tv2.setVisibility(position == 0 ? View.VISIBLE : View.INVISIBLE);
+
             }
 
             @Override
@@ -94,7 +74,18 @@ public class OrderWarningActivity extends BaseActivity implements OnRefreshLoadM
                 return 0;
             }
         };
+        adapter.setOnItemClickListener(new RBaseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(RViewHolder holder, View view, int position) {
+                toActivity(OrderDetailActivity.class);
+            }
+        });
         recyclerView.setAdapter(adapter);
+
+    }
+
+    @Override
+    protected void setListener() {
 
     }
 
@@ -113,7 +104,7 @@ public class OrderWarningActivity extends BaseActivity implements OnRefreshLoadM
     private void getList() {
         OkGo.<String>get(Urls.BASE_URL).
                 tag(this)
-                .params("uid", SpUtils.getSp(mContext, "uid"))
+                .params("uid", SpUtils.getSp(getActivity(), "uid"))
                 .params("type", "1")
                 .execute(new StringCallback() {
                     @Override
@@ -130,10 +121,5 @@ public class OrderWarningActivity extends BaseActivity implements OnRefreshLoadM
                         }
                     }
                 });
-    }
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.activity_order_warning_layout;
     }
 }

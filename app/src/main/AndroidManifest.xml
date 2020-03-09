@@ -57,7 +57,8 @@
         <activity android:name=".ui.activity.CompanyRegisterActivity" />
         <activity android:name=".ui.activity.SupplementaryContractActivity" />
         <activity android:name=".ui.activity.ContractManageActivity" />
-        <activity android:name=".ui.activity.ContractWarningActivity" />
+        <activity android:name=".ui.activity.ContractWarningActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
         <activity android:name=".ui.activity.OrderActivity" />
         <activity android:name=".ui.activity.OrderWarningActivity" />
         <activity android:name=".ui.activity.CreateContractActivity" />
@@ -65,6 +66,8 @@
         <activity android:name=".ui.activity.ContractDetailActivity" />
         <activity android:name=".ui.activity.EditContractActivity" />
         <activity android:name=".ui.activity.ContractRenewalActivity" />
+        <activity android:name=".ui.activity.OrderDetailActivity" />
+        <activity android:name=".ui.activity.EditPayBackMoneyActivity" />
         <!-- 7.0读写权限 -->
         <provider
             android:name="androidx.core.content.FileProvider"

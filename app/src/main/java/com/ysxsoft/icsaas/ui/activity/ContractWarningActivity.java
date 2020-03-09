@@ -17,6 +17,7 @@ import com.ysxsoft.icsaas.common_base.adapter.RViewHolder;
 import com.ysxsoft.icsaas.common_base.base.BaseActivity;
 import com.ysxsoft.icsaas.common_base.utils.SpUtils;
 import com.ysxsoft.icsaas.config.Urls;
+import com.ysxsoft.icsaas.ui.dialog.ContractWarningDialog;
 
 import java.util.ArrayList;
 
@@ -53,7 +54,13 @@ public class ContractWarningActivity extends BaseActivity implements OnRefreshLo
 
     @Override
     protected void setListener() {
-
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContractWarningDialog dialog = new ContractWarningDialog(mContext);
+                dialog.show();
+            }
+        });
     }
 
     @Override

@@ -52,7 +52,7 @@ public class IntentUtils {
     public static void call(Context context, String phoneNum) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_DIAL);
-        intent.setData(Uri.parse("tel://" + phoneNum));
+        intent.setData(Uri.parse("tel:" + phoneNum));
         context.startActivity(intent);
     }
 

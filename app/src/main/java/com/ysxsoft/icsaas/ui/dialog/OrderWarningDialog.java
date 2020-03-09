@@ -5,6 +5,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ysxsoft.icsaas.R;
@@ -20,32 +21,18 @@ import androidx.annotation.NonNull;
 
 /**
  * Create By 胡
- * on 2020/3/4 0004
+ * on 2020/3/9 0009
  */
-public class Tab1RightInRightOutDialog extends ABSDialog {
-
-    private OnDialogListener onDialogListener;
+public class OrderWarningDialog extends ABSDialog {
     private Context context;
-
-    public Tab1RightInRightOutDialog(@NonNull Context context) {
-        super(context, R.style.RightInRightOutDialogStyle);
+    public OrderWarningDialog(@NonNull Context context) {
+        super(context,R.style.RightInRightOutDialogStyle);
         this.context = context;
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.width = DisplayUtils.getDisplayWidth(context) * 2 / 3;
         params.height = WindowManager.LayoutParams.MATCH_PARENT;
         getWindow().setAttributes(params);
         getWindow().setGravity(Gravity.RIGHT);
-
-    }
-
-    public void setOnClickDialogListener(OnDialogListener onDialogListener) {
-        this.onDialogListener = onDialogListener;
-    }
-
-    interface OnDialogListener {
-        void onDismiss();
-
-        void onClick();
     }
 
     @Override
@@ -61,18 +48,14 @@ public class Tab1RightInRightOutDialog extends ABSDialog {
         tvOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onDialogListener != null) {
-                    onDialogListener.onClick();
-                }
             }
         });
 
         ArrayList<String> datas = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
-            datas.add("公司注册" + i);
+            datas.add("合同管理" + i);
         }
         TagFlowLayout flowLayout1 = getViewById(R.id.flowLayout1);
-        TagFlowLayout flowLayout2 = getViewById(R.id.flowLayout2);
         flowLayout1.setAdapter(new TagAdapter<String>(datas) {
             @Override
             public View getView(FlowLayout parent, int position, String o) {
@@ -88,12 +71,13 @@ public class Tab1RightInRightOutDialog extends ABSDialog {
                 return true;
             }
         });
-
-        ArrayList<String> data = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            data.add("普通" + i);
-        }
-        flowLayout2.setAdapter(new TagAdapter<String>(data) {
+        ArrayList<String> list= new ArrayList<>();
+        list.add("30天");
+        list.add("15天");
+        list.add("7天");
+        list.add("逾期");
+        TagFlowLayout flowLayout2 = getViewById(R.id.flowLayout2);
+        flowLayout2.setAdapter(new TagAdapter<String>(list) {
             @Override
             public View getView(FlowLayout parent, int position, String o) {
                 View view = LayoutInflater.from(getContext()).inflate(R.layout.flow_item_layout, flowLayout2, false);
@@ -108,11 +92,29 @@ public class Tab1RightInRightOutDialog extends ABSDialog {
                 return true;
             }
         });
-        TextView tvArea = getViewById(R.id.tvArea);
+        TextView tvSignStartDate = getViewById(R.id.tvSignStartDate);
+        TextView tvSignEndDate = getViewById(R.id.tvSignEndDate);
+        TextView tvDQStarTime = getViewById(R.id.tvDQStarTime);
+        TextView tvDQEndTime = getViewById(R.id.tvDQEndTime);
+        EditText edMoney1 = getViewById(R.id.edMoney1);
+        TextView edMoney2 = getViewById(R.id.edMoney2);
+
+        tvSignStartDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                TimePickerView pvTime = new TimePickerBuilder(context, new OnTimeSelectListener() {
+//                    @Override
+//                    public void onTimeSelect(Date date, View v) {
+//                        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+//                        tvSignStartDate.setText(format.format(date));
+//                    }
+//                }).build();
+//                pvTime.show();
+            }
+        });
+
+
         TextView tvManager = getViewById(R.id.tvManager);
-        TextView tvWorker = getViewById(R.id.tvWorker);
-        TextView tvStarTime = getViewById(R.id.tvStarTime);
-        TextView tvEndTime = getViewById(R.id.tvEndTime);
         tvManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,18 +122,10 @@ public class Tab1RightInRightOutDialog extends ABSDialog {
                 dialog.show();
             }
         });
-        tvWorker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ContractManageWorkerDialog dialog = new ContractManageWorkerDialog(context);
-                dialog.show();
-            }
-        });
-
     }
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.dialog_tab1_riro;
+        return R.layout.dialog_order_warning_layout;
     }
 }

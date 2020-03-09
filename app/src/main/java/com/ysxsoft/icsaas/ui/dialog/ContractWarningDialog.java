@@ -20,14 +20,13 @@ import androidx.annotation.NonNull;
 
 /**
  * Create By 胡
- * on 2020/3/5 0005
+ * on 2020/3/9 0009
  */
-public class CompanyRegisterDialog extends ABSDialog {
+public class ContractWarningDialog extends ABSDialog {
 
-    private OnDialogListener onDialogListener;
     private Context context;
 
-    public CompanyRegisterDialog(@NonNull Context context) {
+    public ContractWarningDialog(@NonNull Context context) {
         super(context, R.style.RightInRightOutDialogStyle);
         this.context = context;
         WindowManager.LayoutParams params = getWindow().getAttributes();
@@ -37,17 +36,6 @@ public class CompanyRegisterDialog extends ABSDialog {
         getWindow().setGravity(Gravity.RIGHT);
     }
 
-    public CompanyRegisterDialog(@NonNull Context context, int themeResId) {
-        super(context, themeResId);
-    }
-    public void setOnClickDialogListener(OnDialogListener onDialogListener) {
-        this.onDialogListener = onDialogListener;
-    }
-
-    interface OnDialogListener {
-        void onDismiss();
-        void onClick();
-    }
     @Override
     protected void initView() {
         getViewById(R.id.tvRepeat).setOnClickListener(new View.OnClickListener() {
@@ -58,31 +46,44 @@ public class CompanyRegisterDialog extends ABSDialog {
         });
 
         TextView tvOk = getViewById(R.id.tvOk);
+        tvOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
         ArrayList<String> datas = new ArrayList<>();
-        datas.add("普通");
-        datas.add("紧急");
-        datas.add("全部");
-        TagFlowLayout flowLayout2 = getViewById(R.id.flowLayout2);
-        flowLayout2.setAdapter(new TagAdapter<String>(datas) {
+        for (int i = 0; i < 8; i++) {
+            datas.add("合同管理" + i);
+        }
+        TagFlowLayout flowLayout1 = getViewById(R.id.flowLayout1);
+        flowLayout1.setAdapter(new TagAdapter<String>(datas) {
             @Override
             public View getView(FlowLayout parent, int position, String o) {
-                View view = LayoutInflater.from(getContext()).inflate(R.layout.flow_item_layout, flowLayout2, false);
+                View view = LayoutInflater.from(getContext()).inflate(R.layout.flow_item_layout, flowLayout1, false);
                 TextView tv = view.findViewById(R.id.tv_flow);
                 tv.setText(o);
                 return view;
             }
         });
-        flowLayout2.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+        flowLayout1.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
                 return true;
             }
         });
-        TextView tvArea = getViewById(R.id.tvArea);
+        TextView tvSignStartDate = getViewById(R.id.tvSignStartDate);
+        TextView tvSignEndDate = getViewById(R.id.tvSignEndDate);
+        TextView tvDQStarTime = getViewById(R.id.tvDQStarTime);
+        TextView tvDQEndTime = getViewById(R.id.tvDQEndTime);
+        TextView tv1Type = getViewById(R.id.tv1Type);
+        TextView tv2Type = getViewById(R.id.tv2Type);
+        TextView tv3Money = getViewById(R.id.tv3Money);
+        TextView tv4Money = getViewById(R.id.tv4Money);
+
+
         TextView tvManager = getViewById(R.id.tvManager);
         TextView tvWorker = getViewById(R.id.tvWorker);
-        TextView tvStarTime = getViewById(R.id.tvStarTime);
-        TextView tvEndTime = getViewById(R.id.tvEndTime);
         tvManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +91,7 @@ public class CompanyRegisterDialog extends ABSDialog {
                 dialog.show();
             }
         });
+
         tvWorker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,10 +99,12 @@ public class CompanyRegisterDialog extends ABSDialog {
                 dialog.show();
             }
         });
+
+
     }
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.dialog_company_register;
+        return R.layout.dialog_contract_warning_layout;
     }
 }
