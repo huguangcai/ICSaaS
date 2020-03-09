@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tab_title_layout" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:layout_marginLeft="15dp"
+                android:text="销售机会"
+                android:textColor="@color/color_4a4747"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_khc"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="客户池"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_my_jh"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="我的机会"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_my_yy"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="我的预约"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:layout_marginLeft="15dp"
+                android:text="销售机会"
+                android:textColor="@color/color_4a4747"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_xkkf"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="新客开发"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_ecgz"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="二次跟踪"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_hfrw"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="回访任务"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_yxrw"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="营销任务"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:layout_marginLeft="15dp"
+                android:text="销售机会"
+                android:textColor="@color/color_4a4747"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_ht"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="合同"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_htyj"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="合同预警"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_order"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="订单"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_order_yj"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="订单预警"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+  <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:layout_marginLeft="15dp"
+                android:text="销售素材"
+                android:textColor="@color/color_4a4747"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_sc_use"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="素材使用"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv13"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_scsj"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="素材收集"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_xswj"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="销售文件"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/icon_hsxx"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="话术学习"
+                    android:textColor="@color/color_101010"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
