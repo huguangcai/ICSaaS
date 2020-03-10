@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:text="王一山"
+            android:textColor="@color/color_101010"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            style="@style/checkbox_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <View style="@style/line_1"
+        android:layout_marginHorizontal="15dp"/>
+
+
+</LinearLayout>

@@ -5,6 +5,6 @@ package com.ysxsoft.icsaas.common_base.view;
  * on 2020/3/4 0004
  */
 public interface OnClickDialogListener {
-    void onDismiss();
-    void onClick();
+    void onCancle();
+    void onSure();
 }

@@ -10,12 +10,14 @@ import android.widget.TextView;
 
 import com.ysxsoft.icsaas.R;
 import com.ysxsoft.icsaas.common_base.utils.DisplayUtils;
+import com.ysxsoft.icsaas.common_base.utils.TimerUtils;
 import com.ysxsoft.icsaas.common_base.view.ABSDialog;
 import com.ysxsoft.icsaas.common_base.widget.flowlayout.FlowLayout;
 import com.ysxsoft.icsaas.common_base.widget.flowlayout.TagAdapter;
 import com.ysxsoft.icsaas.common_base.widget.flowlayout.TagFlowLayout;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import androidx.annotation.NonNull;
 
@@ -114,6 +116,38 @@ public class OrdermanagerDialog extends ABSDialog {
                 dialog.show();
             }
         });
+
+        TextView tvSignStartDate = getViewById(R.id.tvSignStartDate);
+        TextView tvSignEndDate = getViewById(R.id.tvSignEndDate);
+        tvSignStartDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimeSelectPickerView pickerView = new TimeSelectPickerView();
+                pickerView.init(context);
+                pickerView.show(new TimeSelectPickerView.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Date date) {
+                        String timeStr = TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day, date);
+                        tvSignStartDate.setText(timeStr);
+                    }
+                });
+            }
+        });
+        tvSignEndDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimeSelectPickerView pickerView = new TimeSelectPickerView();
+                pickerView.init(context);
+                pickerView.show(new TimeSelectPickerView.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Date date) {
+                        String timeStr = TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day, date);
+                        tvSignEndDate.setText(timeStr);
+                    }
+                });
+            }
+        });
+
     }
 
     @Override

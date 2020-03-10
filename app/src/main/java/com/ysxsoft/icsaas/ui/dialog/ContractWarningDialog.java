@@ -9,12 +9,14 @@ import android.widget.TextView;
 
 import com.ysxsoft.icsaas.R;
 import com.ysxsoft.icsaas.common_base.utils.DisplayUtils;
+import com.ysxsoft.icsaas.common_base.utils.TimerUtils;
 import com.ysxsoft.icsaas.common_base.view.ABSDialog;
 import com.ysxsoft.icsaas.common_base.widget.flowlayout.FlowLayout;
 import com.ysxsoft.icsaas.common_base.widget.flowlayout.TagAdapter;
 import com.ysxsoft.icsaas.common_base.widget.flowlayout.TagFlowLayout;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import androidx.annotation.NonNull;
 
@@ -80,6 +82,65 @@ public class ContractWarningDialog extends ABSDialog {
         TextView tv2Type = getViewById(R.id.tv2Type);
         TextView tv3Money = getViewById(R.id.tv3Money);
         TextView tv4Money = getViewById(R.id.tv4Money);
+
+
+        tvSignStartDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimeSelectPickerView pickerView = new TimeSelectPickerView();
+                pickerView.init(context);
+                pickerView.show(new TimeSelectPickerView.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Date date) {
+                        String timeStr = TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day, date);
+                        tvSignStartDate.setText(timeStr);
+                    }
+                });
+            }
+        });
+        tvSignEndDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimeSelectPickerView pickerView = new TimeSelectPickerView();
+                pickerView.init(context);
+                pickerView.show(new TimeSelectPickerView.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Date date) {
+                        String timeStr = TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day, date);
+                        tvSignEndDate.setText(timeStr);
+                    }
+                });
+            }
+        });
+
+        tvDQStarTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimeSelectPickerView pickerView = new TimeSelectPickerView();
+                pickerView.init(context);
+                pickerView.show(new TimeSelectPickerView.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Date date) {
+                        String timeStr = TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day, date);
+                        tvDQStarTime.setText(timeStr);
+                    }
+                });
+            }
+        });
+        tvDQEndTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimeSelectPickerView pickerView = new TimeSelectPickerView();
+                pickerView.init(context);
+                pickerView.show(new TimeSelectPickerView.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Date date) {
+                        String timeStr = TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day, date);
+                        tvDQEndTime.setText(timeStr);
+                    }
+                });
+            }
+        });
 
 
         TextView tvManager = getViewById(R.id.tvManager);

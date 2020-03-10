@@ -68,6 +68,11 @@
         <activity android:name=".ui.activity.ContractRenewalActivity" />
         <activity android:name=".ui.activity.OrderDetailActivity" />
         <activity android:name=".ui.activity.EditPayBackMoneyActivity" />
+        <activity android:name=".ui.activity.FileCirculationActivity" />
+        <activity android:name=".ui.activity.FileApplyActivity" />
+        <activity android:name=".ui.activity.FileSendActivity" />
+        <activity android:name=".ui.activity.ApplyDetialActivity" />
+        <activity android:name=".ui.activity.SendDetailActivity" />
         <!-- 7.0读写权限 -->
         <provider
             android:name="androidx.core.content.FileProvider"

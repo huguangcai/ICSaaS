@@ -8,6 +8,7 @@ import com.ysxsoft.icsaas.R;
 import com.ysxsoft.icsaas.common_base.base.BaseFragment;
 import com.ysxsoft.icsaas.ui.activity.ContractManageActivity;
 import com.ysxsoft.icsaas.ui.activity.ContractWarningActivity;
+import com.ysxsoft.icsaas.ui.activity.FileCirculationActivity;
 import com.ysxsoft.icsaas.ui.activity.OrderActivity;
 import com.ysxsoft.icsaas.ui.activity.OrderWarningActivity;
 
@@ -90,6 +91,7 @@ public class Tab2Fragment extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv1:
+                toActivity(FileCirculationActivity.class);
                 break;
             case R.id.tv2:
                 break;
