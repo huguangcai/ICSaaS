@@ -1,5 +1,6 @@
 package com.ysxsoft.icsaas.ui.fragment;
 
+import android.view.View;
 import android.widget.TextView;
 
 import com.lzy.okgo.OkGo;
@@ -14,6 +15,8 @@ import com.ysxsoft.icsaas.common_base.adapter.RViewHolder;
 import com.ysxsoft.icsaas.common_base.base.BaseFragment;
 import com.ysxsoft.icsaas.common_base.utils.SpUtils;
 import com.ysxsoft.icsaas.config.Urls;
+import com.ysxsoft.icsaas.ui.activity.SendDetailActivity;
+import com.ysxsoft.icsaas.ui.activity.WaitLookFileActivity;
 
 import java.util.ArrayList;
 
@@ -59,6 +62,12 @@ public class FileCirculationFragment2 extends BaseFragment implements OnRefreshL
                 return 0;
             }
         };
+        adapter.setOnItemClickListener(new RBaseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(RViewHolder holder, View view, int position) {
+                toActivity(WaitLookFileActivity.class);
+            }
+        });
         recyclerView.setAdapter(adapter);
 
     }

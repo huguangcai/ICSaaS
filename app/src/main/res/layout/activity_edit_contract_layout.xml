@@ -38,6 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="请输入公司名称"
+                    android:gravity="end"
                     android:textColor="@color/color_101010"
                     android:textSize="14sp"
                     tools:text="河南圣之淼旅游服务有限公司" />

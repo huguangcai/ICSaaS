@@ -5,8 +5,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.ysxsoft.icsaas.R;
 import com.ysxsoft.icsaas.common_base.base.BaseActivity;
+import com.ysxsoft.icsaas.common_base.utils.TimerUtils;
+
+import java.util.Date;
 
 import androidx.annotation.Nullable;
 import butterknife.BindView;
@@ -56,6 +62,13 @@ public class EditPayBackMoneyActivity extends BaseActivity implements View.OnCli
             case R.id.tvAcount:
                 break;
             case R.id.tvDate:
+                TimePickerView pvTime = new TimePickerBuilder(mContext, new OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {
+                        tvDate.setText(TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day,date));
+                    }
+                }).build();
+                pvTime.show();
                 break;
             case R.id.tvOk:
                 break;

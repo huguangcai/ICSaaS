@@ -5,9 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
+import com.ysxsoft.icsaas.MainActivity;
 import com.ysxsoft.icsaas.R;
 import com.ysxsoft.icsaas.common_base.base.BaseActivity;
+import com.ysxsoft.icsaas.common_base.utils.TimerUtils;
+
+import java.sql.Time;
+import java.util.Date;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +26,7 @@ import butterknife.BindView;
  * Create By 胡
  * on 2020/3/7 0007
  */
-public class EditContractActivity extends BaseActivity {
+public class EditContractActivity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.etCompanyName)
     EditText etCompanyName;
@@ -62,12 +71,10 @@ public class EditContractActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-        title_tv_r.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showToast("保存");
-            }
-        });
+        tvDate.setOnClickListener(this);
+        title_tv_r.setOnClickListener(this);
+        tvServiceStartDate.setOnClickListener(this);
+        tvServiceEndDate.setOnClickListener(this);
     }
 
     @Override
@@ -78,5 +85,42 @@ public class EditContractActivity extends BaseActivity {
     @Override
     public int getLayoutId() {
         return R.layout.activity_edit_contract_layout;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tvDate:
+                //时间选择器
+                TimePickerView pvTime = new TimePickerBuilder(mContext, new OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {
+                        tvDate.setText(TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day,date));
+                    }
+                }).build();
+                pvTime.show();
+                break;
+            case R.id.tvServiceStartDate:
+                TimePickerView pvTime1 = new TimePickerBuilder(mContext, new OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {
+                        tvServiceStartDate.setText(TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day,date));
+                    }
+                }).build();
+                pvTime1.show();
+                break;
+            case R.id.tvServiceEndDate:
+                TimePickerView pvTime2 = new TimePickerBuilder(mContext, new OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {
+                        tvServiceEndDate.setText(TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day,date));
+                    }
+                }).build();
+                pvTime2.show();
+                break;
+            case R.id.title_tv_r:
+                showToast("保存");
+                break;
+        }
     }
 }

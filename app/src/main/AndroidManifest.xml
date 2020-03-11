@@ -73,6 +73,10 @@
         <activity android:name=".ui.activity.FileSendActivity" />
         <activity android:name=".ui.activity.ApplyDetialActivity" />
         <activity android:name=".ui.activity.SendDetailActivity" />
+        <activity android:name=".ui.activity.LogisticsQueryActivity" />
+        <activity android:name=".ui.activity.WaitLookFileActivity" />
+        <activity android:name=".ui.activity.WaitCheckFileActivity" />
+        <activity android:name=".ui.activity.CompledFileActivity" />
         <!-- 7.0读写权限 -->
         <provider
             android:name="androidx.core.content.FileProvider"

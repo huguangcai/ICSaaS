@@ -78,7 +78,7 @@ public class Tab1Fragment1 extends BaseFragment implements OnRefreshLoadMoreList
         adapter.setOnItemClickListener(new RBaseAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(RViewHolder holder, View view, int position) {
-                toActivity(Tab1DetialActivity.class);
+                Tab1DetialActivity.SendActivity(mContext,"未办理","");
             }
         });
         adapter.setOnItemLongClickListener(new RBaseAdapter.onItemLongClickListener() {

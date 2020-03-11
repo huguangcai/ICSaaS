@@ -1,5 +1,7 @@
 package com.ysxsoft.icsaas.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -55,14 +57,27 @@ public class Tab1DetialActivity extends BaseActivity implements View.OnClickList
     TextView tvMark;
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
+    private String id;
+    private String type;
+
+    public static void SendActivity(Context context,String type,String id){
+        Intent intent = new Intent(context, Tab1DetialActivity.class);
+        intent.putExtra("type",type);
+        intent.putExtra("id",id);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        type = intent.getStringExtra("type");
+        id = intent.getStringExtra("id");
         setBackVisibily();
         title_iv_r.setVisibility(View.VISIBLE);
         title_iv_r.setBackgroundResource(R.mipmap.icon_complete);
-        title_content.setText("代办详情");
+        setTitle("待办详情");
+        tv3.setText(type);
     }
 
     @Override

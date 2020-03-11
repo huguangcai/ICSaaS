@@ -8,9 +8,16 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.ysxsoft.icsaas.R;
 import com.ysxsoft.icsaas.common_base.base.BaseActivity;
+import com.ysxsoft.icsaas.common_base.utils.TimerUtils;
 import com.ysxsoft.icsaas.common_base.widget.switchbutton.SwitchButton;
+import com.ysxsoft.icsaas.ui.dialog.SelectPayDialog;
+
+import java.util.Date;
 
 import androidx.annotation.Nullable;
 import butterknife.BindView;
@@ -89,10 +96,28 @@ public class ServiceProjectActivity extends BaseActivity implements View.OnClick
             case R.id.tv2:
                 break;
             case R.id.tv3:
+                //时间选择器
+                TimePickerView pvTime = new TimePickerBuilder(mContext, new OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {
+                        tv3.setText(TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day, date));
+                    }
+                }).build();
+                pvTime.show();
                 break;
             case R.id.tv4:
+                //时间选择器
+                TimePickerView pvTime1 = new TimePickerBuilder(mContext, new OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {
+                        tv4.setText(TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day, date));
+                    }
+                }).build();
+                pvTime1.show();
                 break;
             case R.id.tv5:
+                SelectPayDialog payDialog = new SelectPayDialog(mContext);
+                payDialog.show();
                 break;
             case R.id.tv6:
                 break;

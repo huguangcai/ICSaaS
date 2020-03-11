@@ -5,14 +5,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.ysxsoft.icsaas.R;
 import com.ysxsoft.icsaas.adapter.CreateContractAdapter;
 import com.ysxsoft.icsaas.common_base.adapter.headandfooter.HeaderAndFooterWrapper;
 import com.ysxsoft.icsaas.common_base.base.BaseActivity;
 import com.ysxsoft.icsaas.common_base.utils.LogUtils;
+import com.ysxsoft.icsaas.common_base.utils.TimerUtils;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,9 +29,19 @@ import butterknife.BindView;
  * Create By 胡
  * on 2020/3/6 0006
  */
-public class CreateContractActivity extends BaseActivity {
+public class CreateContractActivity extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
+    @BindView(R.id.tv1)
+    TextView tv1;
+    @BindView(R.id.tv2)
+    TextView tv2;
+    @BindView(R.id.tv3)
+    TextView tv3;
+    @BindView(R.id.tv4)
+    TextView tv4;
+    @BindView(R.id.tvUpload)
+    TextView tvUpload;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,7 +53,7 @@ public class CreateContractActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-
+        tv1.setOnClickListener(this);
     }
 
     int j;
@@ -88,5 +104,29 @@ public class CreateContractActivity extends BaseActivity {
     @Override
     public int getLayoutId() {
         return R.layout.activity_create_contract_layout;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv1:
+                break;
+            case R.id.tv2:
+                break;
+            case R.id.tv3:
+                break;
+            case R.id.tv4:
+                //时间选择器
+                TimePickerView pvTime = new TimePickerBuilder(mContext, new OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {
+                        tv4.setText(TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day,date));
+                    }
+                }).build();
+                pvTime.show();
+                break;
+            case R.id.tvUpload:
+                break;
+        }
     }
 }

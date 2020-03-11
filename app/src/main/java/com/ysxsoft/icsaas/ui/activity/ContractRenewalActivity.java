@@ -5,9 +5,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.ysxsoft.icsaas.R;
 import com.ysxsoft.icsaas.common_base.base.BaseActivity;
+import com.ysxsoft.icsaas.common_base.utils.TimerUtils;
 import com.ysxsoft.icsaas.common_base.widget.switchbutton.SwitchButton;
+
+import java.util.Date;
 
 import androidx.annotation.Nullable;
 import butterknife.BindView;
@@ -56,11 +62,28 @@ public class ContractRenewalActivity extends BaseActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        tvOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        switch (v.getId()) {
+            case R.id.tvServiceStartDate:
+                //时间选择器
+                TimePickerView pvTime = new TimePickerBuilder(mContext, new OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {
+                        tvServiceStartDate.setText(TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day,date));
+                    }
+                }).build();
+                pvTime.show();
+                break;
+            case R.id.tvServiceEndDate:
+                TimePickerView pvTime1 = new TimePickerBuilder(mContext, new OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date, View v) {
+                        tvServiceEndDate.setText(TimerUtils.FormarDateTimeStr(TimerUtils.AppTime.Year_Mouth_Day,date));
+                    }
+                }).build();
+                pvTime1.show();
+                break;
+            case R.id.tvOk:
+                break;
+        }
     }
 }

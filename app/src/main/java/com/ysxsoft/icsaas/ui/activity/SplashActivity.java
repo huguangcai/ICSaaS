@@ -24,10 +24,9 @@ public class SplashActivity extends BaseActivity {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (TextUtils.isEmpty(SpUtils.getSp(mContext,"uid"))) {
+                if (TextUtils.isEmpty(SpUtils.getSp(mContext,"token"))) {
                     //未登录 跳转到登录页面
-//                    toActivity(LoginActivity.class);
-                    toActivity(MainActivity.class);
+                    toActivity(LoginActivity.class);
                 } else {
                     //已登录 跳转到主页
                     toActivity(MainActivity.class);
