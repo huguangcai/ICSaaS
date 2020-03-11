@@ -144,6 +144,7 @@ public class FileCirculationActivity extends BaseActivity {
                 line.setVisibility(clickPostion == position ? View.VISIBLE : View.INVISIBLE);
             }
 
+
             @Override
             protected int getViewType(String item, int position) {
                 return 0;
